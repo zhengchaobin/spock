@@ -22,7 +22,7 @@ class ExceptionsInConditions extends EmbeddedSpecification {
         |   |          |
         [:] null       java.lang.NullPointerException: Cannot invoke method length() on null object
                        \tat apackage.ASpec.a feature(scriptXXXXXXXXXXXXXXXXXXXXXXX.groovy:X)
-    """.stripIndent()
+    """.stripIndent(8)
     e.getCondition().getRendering().replaceAll("(?<! )\\d", "X") == expected
     e.getCause() instanceof NullPointerException
   }
@@ -44,7 +44,7 @@ class ExceptionsInConditions extends EmbeddedSpecification {
         |   |          |
         [:] null       java.lang.NullPointerException: Cannot invoke method isEmpty() on null object
                        \tat apackage.ASpec.a feature(scriptXXXXXXXXXXXXXXXXXXXXXXX.groovy:X)
-    """.stripIndent()
+    """.stripIndent(8)
     e.getCondition().getRendering().replaceAll("\\d", "X") == expected
     e.getCause() instanceof NullPointerException
   }
@@ -75,7 +75,7 @@ class ExceptionsInConditions extends EmbeddedSpecification {
         java.lang.IllegalArgumentException: key does not exists
         \tat apackage.ASpec.a feature_closureX(scriptXXXXXXXXXXXXXXXXXXXXXX.groovy:X)
         \tat apackage.ASpec.a feature(scriptXXXXXXXXXXXXXXXXXXXXXX.groovy:XX)
-    """.stripIndent()
+    """.stripIndent(8)
     e.getCondition().getRendering().replaceAll("(?<! )\\d", "X") == expected
 
     e.getCause() instanceof IllegalArgumentException
@@ -103,7 +103,7 @@ class ExceptionsInConditions extends EmbeddedSpecification {
         result
         |
         null
-    """.stripIndent()
+    """.stripIndent(8)
     e.getCondition().getRendering() == expected
 
     e.getCause() == null
@@ -143,12 +143,12 @@ class ExceptionsInConditions extends EmbeddedSpecification {
     ConditionNotSatisfiedError e = thrown()
     def expected = """\
         Condition failed with Exception:
-        
+
         map.get("key").b.c.d.e()
         |   |          |
         [:] null       java.lang.NullPointerException: Cannot get property 'b' on null object
                        \tat apackage.ASpec.a feature(scriptXXXXXXXXXXXXXXXXXXXXXX.groovy:X)
-    """.stripIndent()
+    """.stripIndent(8)
     e.getMessage().replaceAll("\\d", "X") == expected
   }
 }

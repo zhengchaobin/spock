@@ -1,4 +1,5 @@
-apply plugin: 'osgi'
+//TODO: No longer available in Gradle 6+, find some replacement if still needed
+//apply plugin: 'osgi'
 apply from: script("publishMaven")
 
 ext.displayName = "Spock Framework - Core Module"
@@ -35,7 +36,7 @@ dependencies {
 
 jar {
   manifest {
-    name = 'spock-core'
+//    name = 'spock-core'
     attributes(
       'Created-By': "${System.properties['java.version']} (${System.properties['java.vendor']} ${System.properties['java.vm.version']})".toString(),
       'Build-Date': buildDate,
@@ -49,19 +50,19 @@ jar {
       'Implementation-Vendor': 'spockframework.org',
       'Automatic-Module-Name': 'org.spockframework.core'
     )
-    instruction 'Export-Package', 'org.spockframework.*', 'spock.*'
-    instruction 'Embed-Dependency', 'groovy;inline=false', 'junit;inline=false'
-    instruction 'Import-Package',
-        'groovy.*;version="[2.4,4)"',
-        'org.codehaus.groovy.*;version="[2.4,4)"',
-        'org.junit.*;version="[4,6)"',
-        'org.hamcrest.*;version="[1,2)";resolution:=optional',
-        'org.objenesis.*;version="[2,3)";resolution:=optional',
-        'org.apache.tools.ant.*;version="[1.7,2)";resolution:=optional',
-        'net.bytebuddy.*;version="[1.9,2)";resolution:=optional',
-        'net.sf.cglib.*;version="[3.2,4)";resolution:=optional',
-        'org.objectweb.asm.*;version="[5.2,6)";resolution:=optional',
-        'org.w3c.dom.*'
+//    instruction 'Export-Package', 'org.spockframework.*', 'spock.*'
+//    instruction 'Embed-Dependency', 'groovy;inline=false', 'junit;inline=false'
+//    instruction 'Import-Package',
+//        'groovy.*;version="[2.4,4)"',
+//        'org.codehaus.groovy.*;version="[2.4,4)"',
+//        'org.junit.*;version="[4,6)"',
+//        'org.hamcrest.*;version="[1,2)";resolution:=optional',
+//        'org.objenesis.*;version="[2,3)";resolution:=optional',
+//        'org.apache.tools.ant.*;version="[1.7,2)";resolution:=optional',
+//        'net.bytebuddy.*;version="[1.9,2)";resolution:=optional',
+//        'net.sf.cglib.*;version="[3.2,4)";resolution:=optional',
+//        'org.objectweb.asm.*;version="[5.2,6)";resolution:=optional',
+//        'org.w3c.dom.*'
   }
 }
 

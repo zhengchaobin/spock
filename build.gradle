@@ -1,13 +1,12 @@
 import java.text.SimpleDateFormat
 
 plugins {
-  id 'com.gradle.build-scan' version '2.2.1'
   id "base"
   id "org.asciidoctor.convert" version "1.6.0"
   id "jacoco"
   id "net.nemerosa.versioning" version "2.8.2"
   id "de.marcphilipp.nexus-publish" version "0.3.1" apply false
-//  id "com.github.ben-manes.versions" version "0.21.0"
+//  id "com.github.ben-manes.versions" version "0.27.0"
 }
 
 description = "Spock Framework"
@@ -70,12 +69,12 @@ ext {
 
   libs = [
     jetbrainsAnnotations: "org.jetbrains:annotations:13.0",
-    ant: "org.apache.ant:ant:1.10.5",
-    asm: "org.ow2.asm:asm:7.1",
-    bytebuddy: "net.bytebuddy:byte-buddy:1.9.11",
-    cglib: "cglib:cglib-nodep:3.2.10",
+    ant: "org.apache.ant:ant:1.10.7",
+    asm: "org.ow2.asm:asm:7.3.1",
+    bytebuddy: "net.bytebuddy:byte-buddy:1.10.6",
+    cglib: "cglib:cglib-nodep:3.3.0",
     groovy: groovyDependency,
-    h2database: "com.h2database:h2:1.3.176",
+    h2database: "com.h2database:h2:1.4.200",
     junit4: "junit:junit:4.12",
     junitBom: "org.junit:junit-bom:5.5.2",
     jupiter: "org.junit.jupiter:junit-jupiter",
@@ -83,7 +82,7 @@ ext {
     junitPlatformTestkit: "org.junit.platform:junit-platform-testkit",
     junitPlatformConsole: "org.junit.platform:junit-platform-console",
     log4j: "log4j:log4j:1.2.17",
-    objenesis: "org.objenesis:objenesis:3.0.1"
+    objenesis: "org.objenesis:objenesis:3.1"
   ]
   Date buildTimeAndDate = new Date()
   buildDate = new SimpleDateFormat('yyyy-MM-dd').format(buildTimeAndDate)
@@ -213,7 +212,7 @@ subprojects {
   }
 
   jacoco {
-    toolVersion = '0.8.2'
+    toolVersion = '0.8.5'
   }
 }
 
@@ -403,11 +402,6 @@ def configureGroovydoc(task) {
   configure(task) {
     include "spock/**"
   }
-}
-
-buildScan {
-  termsOfServiceUrl = 'https://gradle.com/terms-of-service'
-  termsOfServiceAgree = 'yes'
 }
 
 subprojects {
